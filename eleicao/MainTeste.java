@@ -7,8 +7,7 @@ import java.util.List;
 public class MainTeste {
     public static void main(String[] args) {
         try {
-            // Criar alguns servidores (docentes e técni
-            cos)
+            // Criar alguns servidores (docentes e técnicos)
             Docente docente1 = new Docente(
                 "João Silva", "111.111.111-11",
                 LocalDate.of(1980, 5, 15), "D001",

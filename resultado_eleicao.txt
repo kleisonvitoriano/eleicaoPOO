@@ -1,0 +1,16 @@
+RESULTADO FINAL DA ELEIÇÃO
+==========================
+Candidato: João Silva
+Percentual: 61,11%
+Votos absolutos: 3
+
+Candidato: Pedro Oliveira
+Percentual: 27,78%
+Votos absolutos: 2
+
+
+Estatísticas gerais:
+Total de votos: 6
+Abstenções: 0
+Votos em branco: 1
+Votos nulos: 0
