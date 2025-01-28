@@ -1,0 +1,44 @@
+class Pessoa {
+    - nome: String
+    - cpf: String
+    - dataNascimento: LocalDate
+
+    + Pessoa(nome: String, cpf: String, dataNascimento: LocalDate)
+    + getNome(): String
+    + getCpf(): String
+    + getDataNascimento(): LocalDate
+    + getIdade(): int
+}
+
+class Aluno extends Pessoa {
+    - matricula: String
+    - curso: String
+
+    + Aluno(nome: String, cpf: String, dataNascimento: LocalDate, matricula: String, curso: String)
+    + getMatricula(): String
+    + getCurso(): String
+}
+
+class Servidor extends Pessoa {
+    - matriculaFuncional: String
+    - titulacao: String
+    - tempoEfetivoServico: int
+    - campusLotacao: String
+
+    + Servidor(nome: String, cpf: String, dataNascimento: LocalDate, matriculaFuncional: String, titulacao: String, tempoEfetivoServico: int, campusLotacao: String)
+    + getMatriculaFuncional(): String
+    + getTitulacao(): String
+    + getTempoEfetivoServico(): int
+    + getCampusLotacao(): String
+}
+
+class ServidorEfetivo extends Servidor {
+    - tempoGestao: int
+
+    + ServidorEfetivo(nome: String, cpf: String, dataNascimento: LocalDate, matriculaFuncional: String, titulacao: String, tempoEfetivoServico: int, campusLotacao: String, tempoGestao: int)
+    + getTempoGestao(): int
+}
+
+class ServidorTemporario extends Servidor {
+    + ServidorTemporario(nome: String, cpf: String, dataNascimento: LocalDate, matriculaFuncional: String, titulacao: String, tempoEfetivoServico: int, campusLotacao: String)
+}
