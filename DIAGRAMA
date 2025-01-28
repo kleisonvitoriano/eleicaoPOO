@@ -46,5 +46,96 @@ class ServidorTemporario extends Servidor {
 
 
 
+
+
+
++---------------------+
+|       Pessoa        |
++---------------------+
+| - nome: String      |
+| - cpf: String       |
+| - dataNascimento: LocalDate |
++---------------------+
+| + Pessoa(nome, cpf, dataNascimento) |
+| + getNome(): String                 |
+| + getCpf(): String                  |
+| + getDataNascimento(): LocalDate    |
+| + getIdade(): int                   |
++---------------------+
+
+           ▲
+           |
++---------------------+
+|       Aluno         |
+|    extends Pessoa   |
++---------------------+
+| - matricula: String |
+| - curso: String     |
++---------------------+
+| + Aluno(nome, cpf, dataNascimento, matricula, curso) |
+| + getMatricula(): String                             |
+| + getCurso(): String                                 |
++---------------------+
+
+           ▲
+           |
++---------------------+
+|      Servidor       |
+|    extends Pessoa   |
++---------------------+
+| - matriculaFuncional: String |
+| - titulacao: String          |
+| - tempoEfetivoServico: int   |
+| - campusLotacao: String      |
++---------------------+
+| + Servidor(...)               |
+| + getMatriculaFuncional(): String |
+| + getTitulacao(): String      |
+| + getTempoEfetivoServico(): int |
+| + getCampusLotacao(): String  |
++---------------------+
+
+           ▲
+           |
++---------------------+
+|     Candidato       |
+|    extends Servidor |
++---------------------+
+| - numero: int       |
+| - corCampanha: String |
+| - votosDocentes: int |
+| - votosDiscentes: int|
+| - votosTecnicos: int |
++---------------------+
+| + Candidato(...)     |
+| + getNumero(): int    |
+| + getCorCampanha(): String |
+| + registrarVotoDocente()   |
+| + registrarVotoDiscente()  |
+| + registrarVotoTecnico()   |
+| + getVotosDocentes(): int  |
+| + getVotosDiscentes(): int |
+| + getVotosTecnicos(): int  |
++---------------------+
+
++---------------------+
+|    UrnaEletronica   |
++---------------------+
+| - candidatos: List<Candidato> |
+| - eleitores: List<Pessoa>     |
+| - votosBrancos: int           |
+| - votosNulos: int             |
++---------------------+
+| + UrnaEletronica(...)         |
+| + registrarVoto(numeroCandidato: int) |
+| + getVotosBrancos(): int      |
+| + getVotosNulos(): int        |
+| + exibirResultado()           |
++---------------------+
+
+
+
+
+
 LINK DIAGRAMA: https://lucid.app/lucidchart/dc7967b8-7db7-4a58-bacd-7f23904a3400/edit?view_items=EkINJZYDE2qK&invitationId=inv_5c2ab6d0-02fb-4c29-b891-fdbf1eab8ece
 
