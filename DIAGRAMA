@@ -42,3 +42,9 @@ class ServidorEfetivo extends Servidor {
 class ServidorTemporario extends Servidor {
     + ServidorTemporario(nome: String, cpf: String, dataNascimento: LocalDate, matriculaFuncional: String, titulacao: String, tempoEfetivoServico: int, campusLotacao: String)
 }
+
+
+
+
+LINK DIAGRAMA: https://lucid.app/lucidchart/dc7967b8-7db7-4a58-bacd-7f23904a3400/edit?view_items=EkINJZYDE2qK&invitationId=inv_5c2ab6d0-02fb-4c29-b891-fdbf1eab8ece
+
