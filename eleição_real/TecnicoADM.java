@@ -1,7 +1,5 @@
 package eleição_real;
 import java.time.LocalDate;
-
-
 public class TecnicoADM extends Servidores {
     private int tempoEfetivoServico;
     private LocalDate tempoCargoGestao;
