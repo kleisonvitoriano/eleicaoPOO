@@ -15,6 +15,32 @@ public abstract class Pessoa {
         this.matricula = matricula;
     }
 
+    
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+
+
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
+    }
+
+
+
+    public void setDataNascimento(LocalDate dataNascimento) {
+        this.dataNascimento = dataNascimento;
+    }
+
+
+
+    public void setMatricula(String matricula) {
+        this.matricula = matricula;
+    }
+
+
+
     public String getNome() {
         return nome;
     }

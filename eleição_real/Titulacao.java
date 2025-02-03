@@ -1,5 +1,8 @@
 package eleição_real;
 
-public class Titulacao {
-    
+public enum Titulacao {
+    GRADUACAO,
+    ESPECIALIZACAO,
+    MESTRADO, 
+    DOUTORADO
 }

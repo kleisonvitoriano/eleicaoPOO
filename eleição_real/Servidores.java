@@ -1,6 +1,58 @@
 package eleição_real;
 
-public class Servidores extends Pessoa {
-    
+import java.time.LocalDate;
 
+public class Servidores extends Pessoa {
+    private String campus;
+    private Titulacao Titulacao;
+    private boolean efetivo;
+
+
+
+    public Servidores(String nome, int cpf, int matricula, LocalDate dataNascimento, String campus,
+        eleição_real.Titulacao titulacao, boolean efetivo) {
+        super(nome, cpf, matricula, dataNascimento);
+        this.campus = campus;
+        Titulacao = titulacao;
+        this.efetivo = efetivo;
+    }
+
+
+
+    public String getCampus() {
+        return campus;
+    }
+
+
+
+    public void setCampus(String campus) {
+        this.campus = campus;
+    }
+
+
+
+    public Titulacao getTitulacao() {
+        return Titulacao;
+    }
+
+
+
+    public void setTitulacao(Titulacao titulacao) {
+        Titulacao = titulacao;
+    }
+
+
+
+    public boolean isEfetivo() {
+        return efetivo;
+    }
+
+
+
+    public void setEfetivo(boolean efetivo) {
+        this.efetivo = efetivo;
+    }
+
+    
+    
 }
