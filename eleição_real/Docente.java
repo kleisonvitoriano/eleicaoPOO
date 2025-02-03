@@ -2,7 +2,7 @@ package eleição_real;
 
 import java.time.LocalDate;
 
-public class Docente extends Servidores{
+public class Docente extends Servidor{
        private int tempoEfetivoServico;
     private LocalDate tempoCargoGestao;
 

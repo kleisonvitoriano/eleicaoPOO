@@ -23,7 +23,17 @@ public class Candidato {
     }
 
     public void registrarVoto(String categoria) {
-
+        switch (categoria.toUpperCase()) {
+            case "DOCENTE":
+                votosDocentes++;
+                break;
+            case "DISCENTE":
+                votosDiscentes++;
+                break;
+            case "TECNICO":
+                votosTecnicos++;
+                break;
+        }
     }
 
     public double calcularPercentual( int totalDocentes, int totalDiscentes, int totalTecnicos) {
