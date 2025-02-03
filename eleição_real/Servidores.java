@@ -43,7 +43,7 @@ public class Servidores extends Pessoa {
 
 
 
-    public boolean isEfetivo() {
+    public boolean getEfetivo() {
         return efetivo;
     }
 
