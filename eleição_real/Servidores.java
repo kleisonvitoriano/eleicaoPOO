@@ -1,5 +1,6 @@
 package eleição_real;
 
-public class Servidores {
+public class Servidores extends Pessoa {
     
+
 }
