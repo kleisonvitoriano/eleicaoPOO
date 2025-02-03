@@ -13,13 +13,9 @@ public class Candidato {
     
     public Candidato(Servidor sevidor, int numero, String cor, int votosDocentes, int votosDiscentes,int votosTecnicos) {
        
-       
         this.sevidor = sevidor;
         this.numero = numero;
         this.cor = cor;
-        this.votosDocentes = 0;
-        this.votosDiscentes = 0;
-        this.votosTecnicos =0;
     }
 
     public void registrarVoto(String categoria) {
@@ -37,9 +33,14 @@ public class Candidato {
     }
 
     public double calcularPercentual( int totalDocentes, int totalDiscentes, int totalTecnicos) {
+       
+        double percentualDocentes = totalDocentes == 0 ? 0 : (double) votosDocentes / totalDocentes;
+        double percentualDiscentes = totalDiscentes == 0 ? 0 : (double) votosDiscentes / totalDiscentes;
+        double percentualTecnicos = totalTecnicos == 0 ? 0 : (double) votosTecnicos / totalTecnicos;
         
+        return (100.0 / 3.0) * (percentualDocentes + percentualDiscentes + percentualTecnicos);
+
         
-        return totalTecnicos;
 
     }
 

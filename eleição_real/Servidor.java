@@ -62,8 +62,8 @@ public class Servidor extends Pessoa {
 
 
 
-    public void setinicio_carreira(LocalDate experiencia) {
-        this.inicio_carreira = experiencia;
+    public void setinicio_carreira(LocalDate inicio_carreira) {
+        this.inicio_carreira = inicio_carreira;
     }
 
     
