@@ -90,8 +90,6 @@ public class UrnaEletronica {
     }
 
     private String determinarCategoria(String matricula) {
-        // Esta é uma implementação simplificada. Na prática, você precisaria
-        // de uma forma mais robusta de determinar a categoria do eleitor
         if (matricula.startsWith("D")) return "DOCENTE";
         if (matricula.startsWith("T")) return "TECNICO";
         return "DISCENTE";
