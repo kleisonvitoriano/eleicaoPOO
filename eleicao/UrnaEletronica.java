@@ -96,10 +96,13 @@ public class UrnaEletronica {
     }
 
     public void finalizarEleicao() throws IOException {
-        if (!votacaoEmAndamento) {
+        if (!this.votacaoEmAndamento || this.responsavel == null) {
             throw new IllegalStateException("Votação não está em andamento");
         }
-        votacaoEmAndamento = false;
+        if(this.responsavel != null){
+            this.votacaoEmAndamento = false;
+        }
+        
         gerarResultadoFinal();
     }
 
@@ -134,15 +137,16 @@ public class UrnaEletronica {
                 resultados.add(new ResultadoCandidato(candidato, percentual));
             }
 
-            // Ordenar por percentual (decrescente)
+            
             resultados.sort((r1, r2) -> {
                 int compare = Double.compare(r2.percentual, r1.percentual);
                 if (compare == 0) {
-                    // Desempate por votos absolutos
+               
+                    
                     compare = Integer.compare(r2.candidato.getTotalVotosAbsolutos(), 
                                            r1.candidato.getTotalVotosAbsolutos());
                     if (compare == 0) {
-                        // Desempate por tempo de serviço
+        
                         if (r1.candidato.getServidor() instanceof Docente && 
                             r2.candidato.getServidor() instanceof Docente) {
                             compare = Integer.compare(
@@ -151,7 +155,7 @@ public class UrnaEletronica {
                             );
                         }
                         if (compare == 0) {
-                            // Desempate por idade
+                           
                             compare = Integer.compare(
                                 r2.candidato.getServidor().getIdade(),
                                 r1.candidato.getServidor().getIdade()
@@ -170,7 +174,7 @@ public class UrnaEletronica {
             }
 
             writer.println("\nEstatísticas gerais:");
-            writer.printf("Total de votos: %d%n", eleitoresQueVotaram.size());
+            writer.printf("Total de votos: %d%n", eleitoresQueVotaram.size() + votosBrancos + votosNulos);
             writer.printf("Abstenções: %d%n", eleitoresVotantes.size() - eleitoresQueVotaram.size());
             writer.printf("Votos em branco: %d%n", votosBrancos);
             writer.printf("Votos nulos: %d%n", votosNulos);
