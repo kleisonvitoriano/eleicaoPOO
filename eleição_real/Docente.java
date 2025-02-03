@@ -8,7 +8,7 @@ public class Docente extends Servidor{
 
 
 public Docente(String nome, int cpf, int matricula, LocalDate dataNascimento, String campus, Titulacao titulacao, boolean efetivo, int tempoEfetivoServico, LocalDate tempoCargoGestao) {
-        super(nome, cpf, matricula, dataNascimento, campus, titulacao, efetivo); 
+        super(nome, cpf, matricula, dataNascimento, campus, titulacao, tempoCargoGestao, efetivo); 
         this.tempoEfetivoServico = tempoEfetivoServico;
         this.tempoCargoGestao = tempoCargoGestao;
     } 
