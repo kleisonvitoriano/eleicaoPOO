@@ -2,14 +2,14 @@ package eleição_real;
 
 import java.time.LocalDate;
 
-public class Servidores extends Pessoa {
+public class Servidor extends Pessoa {
     private String campus;
     private Titulacao Titulacao;
     private LocalDate inicio_carreira;
     private boolean efetivo;
 
 
-    public Servidores(String nome, int cpf, int matricula, LocalDate dataNascimento, String campus,
+    public Servidor(String nome, int cpf, int matricula, LocalDate dataNascimento, String campus,
             eleição_real.Titulacao titulacao, LocalDate inicio_carreira, boolean efetivo) {
         super(nome, cpf, matricula, dataNascimento);
         this.campus = campus;
