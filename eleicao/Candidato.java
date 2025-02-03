@@ -2,7 +2,7 @@ package eleicao;
 
 public class Candidato {
     private Servidor servidor;
-    private int numero;
+    private int numero; 
     private String cor;
     private int votosDocentes;
     private int votosDiscentes;
