@@ -2,18 +2,19 @@ package eleição_real;
 
 import java.time.LocalDate;
 
-public class Servidores extends Pessoa {
+public class Servidor extends Pessoa {
     private String campus;
     private Titulacao Titulacao;
+    private LocalDate inicio_carreira;
     private boolean efetivo;
 
 
-
-    public Servidores(String nome, int cpf, int matricula, LocalDate dataNascimento, String campus,
-        eleição_real.Titulacao titulacao, boolean efetivo) {
+    public Servidor(String nome, int cpf, int matricula, LocalDate dataNascimento, String campus,
+            eleição_real.Titulacao titulacao, LocalDate inicio_carreira, boolean efetivo) {
         super(nome, cpf, matricula, dataNascimento);
         this.campus = campus;
         Titulacao = titulacao;
+        this.inicio_carreira = inicio_carreira;
         this.efetivo = efetivo;
     }
 
@@ -53,6 +54,19 @@ public class Servidores extends Pessoa {
         this.efetivo = efetivo;
     }
 
+
+
+    public int getinicio_carreira() {
+        return LocalDate.now().getYear() - inicio_carreira.getYear();
+    }
+
+
+
+    public void setinicio_carreira(LocalDate experiencia) {
+        this.inicio_carreira = experiencia;
+    }
+
+    
     
     
 }

@@ -134,6 +134,108 @@ class ServidorTemporario extends Servidor {
 +---------------------+
 
 
+```uml
+@startuml
+
+class Pessoa {
+    - nome: String
+    - cpf: String
+    - dataNascimento: LocalDate
+    - matricula: String
+    + Pessoa(nome: String, cpf: String, dataNascimento: LocalDate, matricula: String)
+    + getNome(): String
+    + getCpf(): String
+    + getDataNascimento(): LocalDate
+    + getMatricula(): String
+    + getIdade(): int
+}
+
+abstract class Servidor extends Pessoa {
+    - campus: String
+    - titulacao: Titulacao
+    - efetivo: boolean
+    + Servidor(nome: String, cpf: String, dataNascimento: LocalDate, matricula: String, campus: String, titulacao: Titulacao, efetivo: boolean)
+    + getCampus(): String
+    + getTitulacao(): Titulacao
+    + isEfetivo(): boolean
+}
+
+class Docente extends Servidor {
+    - tempoEfetivoServico: int
+    - tempoCargoGestao: int
+    + Docente(nome: String, cpf: String, dataNascimento: LocalDate, matricula: String, campus: String, titulacao: Titulacao, efetivo: boolean, tempoEfetivoServico: int, tempoCargoGestao: int)
+    + getTempoEfetivoServico(): int
+    + getTempoCargoGestao(): int
+    + elegivel(): boolean
+}
+
+class TecnicoAdministrativo extends Servidor {
+    - tempoEfetivoServico: int
+    - tempoCargoGestao: int
+    + TecnicoAdministrativo(nome: String, cpf: String, dataNascimento: LocalDate, matricula: String, campus: String, titulacao: Titulacao, efetivo: boolean, tempoEfetivoServico: int, tempoCargoGestao: int)
+    + getTempoEfetivoServico(): int
+    + getTempoCargoGestao(): int
+    + elegivel(): boolean
+}
+
+class Aluno extends Pessoa {
+    - curso: String
+    + Aluno(nome: String, cpf: String, dataNascimento: LocalDate, matricula: String, curso: String)
+    + getCurso(): String
+}
+
+class Candidato {
+    - servidor: Servidor
+    - numero: int
+    - cor: String
+    - votosDocentes: int
+    - votosDiscentes: int
+    - votosTecnicos: int
+    + Candidato(servidor: Servidor, numero: int, cor: String)
+    + getServidor(): Servidor
+    + getNumero(): int
+    + getCor(): String
+    + registrarVoto(categoria: String): void
+    + calcularPercentual(totalDocentes: int, totalDiscentes: int, totalTecnicos: int): double
+    + getTotalVotosAbsolutos(): int
+}
+
+class UrnaEletronica {
+    - candidatos: List<Candidato>
+    - eleitoresVotantes: Set<String>
+    - eleitoresQueVotaram: Set<String>
+    - responsavel: Servidor
+    - votacaoEmAndamento: boolean
+    - votosBrancos: int
+    - votosNulos: int
+    - totaisPorCategoria: Map<String, Integer>
+    + UrnaEletronica(responsavel: Servidor)
+    + iniciarEleicao(eleitores: List<Pessoa>): void
+    + registrarCandidato(candidato: Candidato): void
+    + podeVotar(matricula: String): boolean
+    + registrarVoto(matricula: String, numeroVoto: int): void
+    + finalizarEleicao(): void
+}
+
+enum Titulacao {
+    GRADUACAO,
+    ESPECIALIZACAO,
+    MESTRADO,
+    DOUTORADO
+}
+
+// Relacionamentos
+Pessoa <|-- Servidor
+Servidor <|-- Docente
+Servidor <|-- TecnicoAdministrativo
+Pessoa <|-- Aluno
+Servidor "1" -- "1" Candidato : é
+UrnaEletronica "1" -- "*" Candidato : gerencia
+
+@enduml
+```
+
+
 
 
 
