@@ -26,15 +26,15 @@ public class MainTeste {
 
        
         docentes.add(new Docente("Carlos Oliveira", 11223344, 1001, LocalDate.of(1975, 3, 10), 
-                                  "Campus Principal", Titulacao.DOUTOR, true, 10, LocalDate.now()));
+                                  "Campus Principal", Titulacao.DOUTORADO, true, 10, LocalDate.now()));
         docentes.add(new Docente("Ana Pereira", 44332211, 1002, LocalDate.of(1980, 7, 20), 
-                                  "Campus Principal", Titulacao.MESTRE, true, 8, LocalDate.now()));
+                                  "Campus Principal", Titulacao.MESTRADO, true, 8, LocalDate.now()));
 
 
         tecnicosAdm.add(new TecnicoADM("Pedro Souza", 55667788, 2001, LocalDate.of(1985, 11, 5), 
-                                        "Campus Principal", Titulacao.GRADUADO, true, 7, LocalDate.now()));
+                                        "Campus Principal", Titulacao.GRADUACAO, true, 7, LocalDate.now()));
         tecnicosAdm.add(new TecnicoADM("Mariana Costa", 99887766, 2002, LocalDate.of(1990, 4, 12), 
-                                        "Campus Principal", Titulacao.ESPECIALISTA, true, 6, LocalDate.now()));
+                                        "Campus Principal", Titulacao.ESPECIALIZACAO, true, 6, LocalDate.now()));
     }
 
    
