@@ -13,15 +13,15 @@ public class Candidato {
     
     
     
-    public Candidato(Servidor servidor, int numero, String cor, int votosDocentes, int votosDiscentes,int votosTecnicos) {
-       
-        this.setServidor(servidor);
-        this.setNumero(numero);
-        this.setCor(cor);
-        this.setVotosDiscentes(votosDiscentes);
-        this.setVotosDocentes(votosDocentes);
-        this.setVotosTecnicos(votosTecnicos);
+    public Candidato(Servidor servidor, int numero, String cor) {
+        this.servidor = servidor;
+        this.numero = numero;
+        this.cor = cor;
+        this.votosDocentes = 0;
+        this.votosDiscentes = 0;
+        this.votosTecnicos = 0;
     }
+
 
 
 

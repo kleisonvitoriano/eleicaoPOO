@@ -1,28 +1,22 @@
 package eleição_real;
 
-import java.time.LocalDate;
+
 import java.util.Random;
 
-public class Pre_Candidato extends Servidor {
+public class Pre_Candidato {
     private Servidor servidor;
     private boolean inscricaoValida;
 
-    
-
-    public Pre_Candidato(String nome, int cpf, int matricula, LocalDate dataNascimento, String campus,
-            eleição_real.Titulacao titulacao, LocalDate inicio_carreira, boolean efetivo, Servidor servidor,
-            boolean inscricaoValida) {
-        super(nome, cpf, matricula, dataNascimento, campus, titulacao, inicio_carreira, efetivo);
+    public Pre_Candidato(Servidor servidor) {
         this.servidor = servidor;
-        this.inscricaoValida = inscricaoValida;
+        this.inscricaoValida = false; // A inscrição começa como inválida
     }
 
     // Método para validar a inscrição
     public boolean validarInscricao() {
         // Requisitos: Idade, tempo de carreira, titulação
         if (servidor.getIdade() >= 35 && servidor.getinicio_carreira() >= 5) {
-            // Verificar se o servidor tem doutorado ou pelo menos 2 anos de carreira
-            if (servidor.getTitulacao() != null && (servidor.getTitulacao() == Titulacao.DOUTORADO || servidor.getinicio_carreira() >= 2)) {
+            if (servidor.getTitulacao() == Titulacao.DOUTORADO || servidor.getinicio_carreira() >= 2) {
                 inscricaoValida = true;
                 return true;
             }
@@ -35,7 +29,7 @@ public class Pre_Candidato extends Servidor {
         if (inscricaoValida) {
             int numero = gerarNumeroCandidato();
             String cor = escolherCor();
-            return new Candidato(servidor, numero, cor);
+            return new Candidato(servidor, numero, cor); // Corrigido para passar o servidor correto
         } else {
             System.out.println("A inscrição não foi validada.");
             return null;
@@ -55,7 +49,7 @@ public class Pre_Candidato extends Servidor {
         return cores[random.nextInt(cores.length)];
     }
 
-   
+    // Getters e Setters
     public Servidor getServidor() {
         return servidor;
     }
@@ -71,6 +65,4 @@ public class Pre_Candidato extends Servidor {
     public void setInscricaoValida(boolean inscricaoValida) {
         this.inscricaoValida = inscricaoValida;
     }
-
-    
 }
