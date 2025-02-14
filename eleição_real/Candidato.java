@@ -1,7 +1,9 @@
 package eleição_real;
 
+import java.time.DayOfWeek;
+
 public class Candidato {
-    private Servidor sevidor;
+    private Servidor servidor;
     private int numero;
     private String cor;
     private int votosDocentes;
@@ -11,12 +13,22 @@ public class Candidato {
     
     
     
-    public Candidato(Servidor sevidor, int numero, String cor, int votosDocentes, int votosDiscentes,int votosTecnicos) {
+    public Candidato(Servidor servidor, int numero, String cor, int votosDocentes, int votosDiscentes,int votosTecnicos) {
        
-        this.sevidor = sevidor;
-        this.numero = numero;
-        this.cor = cor;
+        this.setServidor(servidor);
+        this.setNumero(numero);
+        this.setCor(cor);
+        this.setVotosDiscentes(votosDiscentes);
+        this.setVotosDocentes(votosDocentes);
+        this.setVotosTecnicos(votosTecnicos);
     }
+
+    public boolean elegivel_diretorGeral() {
+        
+        return "NovaCruz".equals(servidor.getCampus()) && servidor.getIdade() >= 35
+        && servidor.getinicio_carreira() >= 5 
+        && (servidor.getTitulacao() == Titulacao.DOUTORADO || servidor.getinicio_carreira() >= 2);
+}
 
     public void registrarVoto(String categoria) {
         switch (categoria.toUpperCase()) {
@@ -32,28 +44,23 @@ public class Candidato {
         }
     }
 
-    public double calcularPercentual( int totalDocentes, int totalDiscentes, int totalTecnicos) {
-       
-        double percentualDocentes = totalDocentes == 0 ? 0 : (double) votosDocentes / totalDocentes;
-        double percentualDiscentes = totalDiscentes == 0 ? 0 : (double) votosDiscentes / totalDiscentes;
-        double percentualTecnicos = totalTecnicos == 0 ? 0 : (double) votosTecnicos / totalTecnicos;
-        
-        return (100.0 / 3.0) * (percentualDocentes + percentualDiscentes + percentualTecnicos);
-
-        
-
+    public float calcularPercentual(int totalDocentes, int totalDiscentes, int totalTecnicos) {
+        float percentualDocentes = totalDocentes == 0 ? 0 : (float) votosDocentes / totalDocentes;
+        float percentualDiscentes = totalDiscentes == 0 ? 0 : (float) votosDiscentes / totalDiscentes;
+        float percentualTecnicos = totalTecnicos == 0 ? 0 : (float) votosTecnicos / totalTecnicos;
+    
+        return (100.0f / 3.0f) * (percentualDocentes + percentualDiscentes + percentualTecnicos);
     }
-
     
 
 
-    public Servidor getSevidor() {
-        return sevidor;
+    public Servidor getServidor() {
+        return servidor;
     }
 
 
-    public void setSevidor(Servidor sevidor) {
-        this.sevidor = sevidor;
+    public void setServidor(Servidor servidor) {
+        this.servidor = servidor;
     }
 
 
@@ -108,7 +115,7 @@ public class Candidato {
 
     public int getVotosAbsolutos() {
         
-        return numero;
+        return votosDocentes + votosDiscentes + votosTecnicos;
 
     }
 

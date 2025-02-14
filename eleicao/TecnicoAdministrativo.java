@@ -14,6 +14,8 @@ public class TecnicoAdministrativo extends Servidor {
         this.tempoCargoGestao = tempoCargoGestao;
     }
 
+    
+
     public int getTempoEfetivoServico() {
         return tempoEfetivoServico;
     }

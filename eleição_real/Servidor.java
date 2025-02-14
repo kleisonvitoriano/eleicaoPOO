@@ -12,10 +12,10 @@ public class Servidor extends Pessoa {
     public Servidor(String nome, int cpf, int matricula, LocalDate dataNascimento, String campus,
             eleição_real.Titulacao titulacao, LocalDate inicio_carreira, boolean efetivo) {
         super(nome, cpf, matricula, dataNascimento);
-        this.campus = campus;
-        Titulacao = titulacao;
-        this.inicio_carreira = inicio_carreira;
-        this.efetivo = efetivo;
+        this.setCampus(campus);
+        this.setTitulacao(titulacao);
+        this.setinicio_carreira(inicio_carreira);
+        this.setEfetivo(efetivo);
     }
 
 
