@@ -1,6 +1,6 @@
 package eleição_real;
 
-import java.time.DayOfWeek;
+
 
 public class Candidato {
     private Servidor servidor;
@@ -23,12 +23,7 @@ public class Candidato {
         this.setVotosTecnicos(votosTecnicos);
     }
 
-    public boolean elegivel_diretorGeral() {
-        
-        return "NovaCruz".equals(servidor.getCampus()) && servidor.getIdade() >= 35
-        && servidor.getinicio_carreira() >= 5 
-        && (servidor.getTitulacao() == Titulacao.DOUTORADO || servidor.getinicio_carreira() >= 2);
-}
+
 
     public void registrarVoto(String categoria) {
         switch (categoria.toUpperCase()) {
@@ -119,9 +114,6 @@ public class Candidato {
 
     }
 
-    public String getCategoria() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getCategoria'");
-    }
+    
     
 }
