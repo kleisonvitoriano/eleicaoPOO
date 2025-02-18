@@ -25,6 +25,14 @@ public class UrnaEletronica {
         this.votosPorCategoria = new java.util.HashMap<>();
         this.totalEleitores = eleitoresVotantes.size();
     }
+    public Servidor getResponsavel() {
+        return responsavel;
+    }
+
+    public void setResponsavel(Servidor responsavel) {
+        
+        this.responsavel = responsavel;
+    }
 
     public void iniciarVotacao() {
         this.votacaoEmAndamento = true;
@@ -82,24 +90,22 @@ public class UrnaEletronica {
     public int getTotalEleitores() {
         return totalEleitores;
     }
+public int getEleitoresQueVotaram(){
+    return eleitoresQueVotaram.size();
+}
 
-    public int getEleitoresQueVotaram(){
-        return eleitoresQueVotaram.size();
-    }
+public int getEleitoresQueNaoVotaram(){
+    return totalEleitores - eleitoresQueVotaram.size();
+}
 
-    public int getEleitoresQueNaoVotaram(){
-        return totalEleitores - eleitoresQueVotaram.size();
-    }
+public List<Candidato> getCandidatos(){
+    return candidatos;
+}
 
-    public List<Candidato> getCandidatos(){
-        return candidatos;
-    }
-
-    public double calcularPercentual(String categoria){
-        double totalVotos = this.votosPorCategoria.getOrDefault(categoria,0);
-        double totalCategoria = this.totalEleitores/3.0;
-        return (totalVotos/totalCategoria)*100;
-    }
-
+public double calcularPercentual(String categoria){
+    double totalVotos = this.votosPorCategoria.getOrDefault(categoria,0);
+    double totalCategoria = this.totalEleitores/3.0;
+    return (totalVotos/totalCategoria)*100;
+}
 }
 
