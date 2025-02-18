@@ -12,18 +12,16 @@ public class Pre_Candidato {
         this.inscricaoValida = false; // A inscrição começa como inválida
     }
 
-    // Método para validar a inscrição
+    
     public boolean validarInscricao() {
-        // Requisitos: Idade, tempo de carreira, titulação
         if (servidor.getIdade() >= 35 && servidor.getinicio_carreira() >= 5) {
-            if (servidor.getTitulacao() == Titulacao.DOUTORADO || servidor.getinicio_carreira() >= 2) {
+            if (servidor.getTitulacao() == Titulacao.DOUTORADO || servidor.getTitulacao() == Titulacao.MESTRADO) {
                 inscricaoValida = true;
                 return true;
             }
         }
-        return false;
+        return false; // Agora sempre retorna um valor booleano
     }
-
     // Método para oficializar a candidatura
     public Candidato oficializarCandidatura() {
         if (inscricaoValida) {
