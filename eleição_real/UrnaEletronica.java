@@ -28,9 +28,20 @@ public class UrnaEletronica {
     public Servidor getResponsavel() {
         return responsavel;
     }
+    public void exibirResultados() {
+        System.out.println("Número total de votos realizados: " + eleitoresQueVotaram.size());
+        System.out.println("Número de eleitores que não compareceram para votar: " + getEleitoresQueNaoVotaram());
+        System.out.println("Número absoluto de votos de cada candidato:");
+        for (Candidato candidato : candidatos) {
+            int votos = votosPorCategoria.getOrDefault(candidato.getCategoria(), 0);
+            System.out.println(candidato.getNome() + ": " + votos);
+        }
+        System.out.println("Votos em branco: " + votosBrancos);
+        System.out.println("Votos nulos: " + votosNulos);
+    }
 
     public void setResponsavel(Servidor responsavel) {
-        
+
         this.responsavel = responsavel;
     }
 
