@@ -7,15 +7,33 @@ public class Servidor extends Pessoa {
     private Titulacao Titulacao;
     private LocalDate inicio_carreira;
     private boolean efetivo;
+    private String responsavel;
 
+    public Servidor(String nome, String cpf, int matricula, LocalDate dataNascimento, String campus,
+            eleição_real.Titulacao titulacao, LocalDate inicio_carreira, boolean efetivo, String responsavel) {
+        super(nome, cpf, matricula, dataNascimento);
+        this.setCampus(campus);
+        this.setTitulacao(titulacao);
+        this.setinicio_carreira(inicio_carreira);
+        this.setEfetivo(efetivo);
+        this.setResponsavel(responsavel);
+    }
 
-    public Servidor(String nome, int cpf, int matricula, LocalDate dataNascimento, String campus,
+    public String getResponsavel() {
+        return responsavel;
+    }
+
+    public void setResponsavel(String responsavel) {
+    
+        this.responsavel = responsavel;
+    }
+    public Servidor(String nome, String cpf, int matricula, LocalDate dataNascimento, String campus,
             eleição_real.Titulacao titulacao, LocalDate inicio_carreira, boolean efetivo) {
         super(nome, cpf, matricula, dataNascimento);
-        this.campus = campus;
-        Titulacao = titulacao;
-        this.inicio_carreira = inicio_carreira;
-        this.efetivo = efetivo;
+        this.setCampus(campus);
+        this.setTitulacao(titulacao);
+        this.setinicio_carreira(inicio_carreira);
+        this.setEfetivo(efetivo);
     }
 
 

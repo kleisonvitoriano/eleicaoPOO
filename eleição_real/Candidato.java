@@ -1,7 +1,9 @@
 package eleição_real;
 
+
+
 public class Candidato {
-    private Servidor sevidor;
+    private Servidor servidor;
     private int numero;
     private String cor;
     private int votosDocentes;
@@ -11,12 +13,17 @@ public class Candidato {
     
     
     
-    public Candidato(Servidor sevidor, int numero, String cor, int votosDocentes, int votosDiscentes,int votosTecnicos) {
-       
-        this.sevidor = sevidor;
+    public Candidato(Servidor servidor, int numero, String cor) {
+        this.servidor = servidor;
         this.numero = numero;
         this.cor = cor;
+        this.votosDocentes = 0;
+        this.votosDiscentes = 0;
+        this.votosTecnicos = 0;
     }
+
+
+
 
     public void registrarVoto(String categoria) {
         switch (categoria.toUpperCase()) {
@@ -32,28 +39,23 @@ public class Candidato {
         }
     }
 
-    public double calcularPercentual( int totalDocentes, int totalDiscentes, int totalTecnicos) {
-       
-        double percentualDocentes = totalDocentes == 0 ? 0 : (double) votosDocentes / totalDocentes;
-        double percentualDiscentes = totalDiscentes == 0 ? 0 : (double) votosDiscentes / totalDiscentes;
-        double percentualTecnicos = totalTecnicos == 0 ? 0 : (double) votosTecnicos / totalTecnicos;
-        
-        return (100.0 / 3.0) * (percentualDocentes + percentualDiscentes + percentualTecnicos);
-
-        
-
+    public float calcularPercentual(int totalDocentes, int totalDiscentes, int totalTecnicos) {
+        float percentualDocentes = totalDocentes == 0 ? 0 : (float) votosDocentes / totalDocentes;
+        float percentualDiscentes = totalDiscentes == 0 ? 0 : (float) votosDiscentes / totalDiscentes;
+        float percentualTecnicos = totalTecnicos == 0 ? 0 : (float) votosTecnicos / totalTecnicos;
+    
+        return (100.0f / 3.0f) * (percentualDocentes + percentualDiscentes + percentualTecnicos);
     }
-
     
 
 
-    public Servidor getSevidor() {
-        return sevidor;
+    public Servidor getServidor() {
+        return servidor;
     }
 
 
-    public void setSevidor(Servidor sevidor) {
-        this.sevidor = sevidor;
+    public void setServidor(Servidor servidor) {
+        this.servidor = servidor;
     }
 
 
@@ -108,13 +110,18 @@ public class Candidato {
 
     public int getVotosAbsolutos() {
         
-        return numero;
+        return votosDocentes + votosDiscentes + votosTecnicos;
 
     }
+
+
+
 
     public String getCategoria() {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'getCategoria'");
     }
+
+    
     
 }
