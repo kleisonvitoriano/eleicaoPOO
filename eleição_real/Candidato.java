@@ -114,6 +114,14 @@ public class Candidato {
 
     }
 
+
+
+
+    public String getCategoria() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'getCategoria'");
+    }
+
     
     
 }
