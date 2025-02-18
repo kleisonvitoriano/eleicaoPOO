@@ -9,7 +9,7 @@ public class Servidor extends Pessoa {
     private boolean efetivo;
     private String responsavel;
 
-    public Servidor(String nome, int cpf, int matricula, LocalDate dataNascimento, String campus,
+    public Servidor(String nome, String cpf, int matricula, LocalDate dataNascimento, String campus,
             eleição_real.Titulacao titulacao, LocalDate inicio_carreira, boolean efetivo, String responsavel) {
         super(nome, cpf, matricula, dataNascimento);
         this.setCampus(campus);
@@ -27,7 +27,7 @@ public class Servidor extends Pessoa {
     
         this.responsavel = responsavel;
     }
-    public Servidor(String nome, int cpf, int matricula, LocalDate dataNascimento, String campus,
+    public Servidor(String nome, String cpf, int matricula, LocalDate dataNascimento, String campus,
             eleição_real.Titulacao titulacao, LocalDate inicio_carreira, boolean efetivo) {
         super(nome, cpf, matricula, dataNascimento);
         this.setCampus(campus);
