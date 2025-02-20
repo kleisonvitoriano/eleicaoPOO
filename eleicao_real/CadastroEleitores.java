@@ -58,9 +58,8 @@ public class CadastroEleitores {
                 case 2: // Cadastro de Docente
                     Titulacao titulacao = perguntarTitulacao();
 
-                    System.out.print("Efetivo (true/false): ");
-                    boolean efetivo = scanner.nextBoolean();
-                    scanner.nextLine();
+                    
+                    boolean efetivo = perguntarEfetivo();
                     
                     
                     System.out.print("Data de Início da Carreira (YYYY-MM-DD): ");
@@ -80,12 +79,11 @@ public class CadastroEleitores {
                     System.out.print("Data de Início da Carreira (YYYY-MM-DD): ");
                     LocalDate inicioCarreiraTec = LocalDate.parse(scanner.nextLine());
 
-                    System.out.print("Efetivo (sim/não): ");
-                    boolean efetivoTec = scanner.nextBoolean();
-                    scanner.nextLine();
+                    
+                    boolean efetivoTec = perguntarEfetivo();
+                  
 
-                    System.out.print("Regime de Trabalho (PRESENCIAL ou TELETRABALHO): ");
-                    RegimeTrabalho regimeTrabalho = RegimeTrabalho.valueOf(scanner.nextLine().toUpperCase());
+                    RegimeTrabalho regimeTrabalho = perguntarRegimeTrabalho();
 
                     int tempoCarreiraTec = LocalDate.now().getYear() - inicioCarreiraTec.getYear();
 
@@ -123,6 +121,38 @@ public class CadastroEleitores {
             default:
                 System.out.println("Opção inválida! Usando padrão: GRADUAÇÃO.");
                 return Titulacao.GRADUACAO;
+        }
+    }
+
+
+
+    private boolean perguntarEfetivo() {
+        while (true) {
+            System.out.print("É Efetivo? (sim/não): ");
+            String resposta = scanner.nextLine().trim().toLowerCase();
+
+            if (resposta.equals("sim")) {
+                return true;
+            } else if (resposta.equals("não") || resposta.equals("nao")) {
+                return false;
+            } else {
+                System.out.println("Resposta inválida! Digite 'sim' ou 'não'.");
+            }
+        }
+    }
+
+    private RegimeTrabalho perguntarRegimeTrabalho() {
+        while (true) {
+            System.out.print("Regime de trabalho (PRESENCIAL ou TELETRABALHO): ");
+            String resposta = scanner.nextLine().trim().toUpperCase();
+    
+            if (resposta.equals("PRESENCIAL")) {
+                return RegimeTrabalho.PRESENCIAL;
+            } else if (resposta.equals("TELETRABALHO")) {
+                return RegimeTrabalho.TELETRABALHO;
+            } else {
+                System.out.println("Resposta inválida! Digite 'PRESENCIAL' ou 'TELETRABALHO'.");
+            }
         }
     }
 
