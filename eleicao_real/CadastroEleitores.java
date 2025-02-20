@@ -42,7 +42,7 @@ public class CadastroEleitores {
             int matricula = scanner.nextInt();
             scanner.nextLine(); // Consumir quebra de linha
 
-            System.out.print("Data de Nascimento (YYYY-MM-DD): ");
+            System.out.print("Data de Nascimento (AAAA-MM-DD): ");
             LocalDate dataNascimento = LocalDate.parse(scanner.nextLine());
 
             System.out.print("Campus: ");
@@ -56,40 +56,38 @@ public class CadastroEleitores {
                     break;
                 
                 case 2: // Cadastro de Docente
-                    System.out.print("Titulação (GRADUACAO, ESPECIALIZACAO, MESTRADO, DOUTORADO): ");
-                    Titulacao titulacao = Titulacao.valueOf(scanner.nextLine().toUpperCase());
+                    Titulacao titulacao = perguntarTitulacao();
 
                     System.out.print("Efetivo (true/false): ");
                     boolean efetivo = scanner.nextBoolean();
                     scanner.nextLine();
-
-                    System.out.print("Tempo de Carreira (anos): ");
-                    int tempoCarreira = scanner.nextInt();
-                    scanner.nextLine();
-
+                    
+                    
                     System.out.print("Data de Início da Carreira (YYYY-MM-DD): ");
                     LocalDate inicioCarreira = LocalDate.parse(scanner.nextLine());
+                    
+                    int tempoCarreira = LocalDate.now().getYear() - inicioCarreira.getYear();
 
                     docentes.add(new Docente(nome, cpf, matricula, dataNascimento, campus, titulacao, efetivo, tempoCarreira, inicioCarreira));
                     break;
                 
                 case 3: // Cadastro de Técnico Administrativo
-                    System.out.print("Titulação (GRADUACAO, ESPECIALIZACAO, MESTRADO, DOUTORADO): ");
-                    Titulacao titulacaoTec = Titulacao.valueOf(scanner.nextLine().toUpperCase());
+                    
+                Titulacao titulacaoTec = perguntarTitulacao();
+                
+                    
 
                     System.out.print("Data de Início da Carreira (YYYY-MM-DD): ");
                     LocalDate inicioCarreiraTec = LocalDate.parse(scanner.nextLine());
 
-                    System.out.print("Efetivo (true/false): ");
+                    System.out.print("Efetivo (sim/não): ");
                     boolean efetivoTec = scanner.nextBoolean();
-                    scanner.nextLine();
-
-                    System.out.print("Tempo de Carreira (anos): ");
-                    int tempoCarreiraTec = scanner.nextInt();
                     scanner.nextLine();
 
                     System.out.print("Regime de Trabalho (PRESENCIAL ou TELETRABALHO): ");
                     RegimeTrabalho regimeTrabalho = RegimeTrabalho.valueOf(scanner.nextLine().toUpperCase());
+
+                    int tempoCarreiraTec = LocalDate.now().getYear() - inicioCarreiraTec.getYear();
 
                     tecnicosAdm.add(new TecnicoADM(nome, cpf, matricula, dataNascimento, campus, titulacaoTec, inicioCarreiraTec, efetivoTec, tempoCarreiraTec, LocalDate.now(), regimeTrabalho));
                     break;
@@ -99,4 +97,33 @@ public class CadastroEleitores {
             }
         }
     }
+
+
+    // 🔹 Método para exibir a titulação e capturar a escolha do usuário
+    private Titulacao perguntarTitulacao() {
+        System.out.println("Escolha a titulação:");
+        System.out.println("1 - GRADUAÇÃO");
+        System.out.println("2 - ESPECIALIZAÇÃO");
+        System.out.println("3 - MESTRADO");
+        System.out.println("4 - DOUTORADO");
+        System.out.print("Opção: ");
+
+        int escolha = scanner.nextInt();
+        scanner.nextLine(); // Consumir quebra de linha
+
+        switch (escolha) {
+            case 1:
+                return Titulacao.GRADUACAO;
+            case 2:
+                return Titulacao.ESPECIALIZACAO;
+            case 3:
+                return Titulacao.MESTRADO;
+            case 4:
+                return Titulacao.DOUTORADO;
+            default:
+                System.out.println("Opção inválida! Usando padrão: GRADUAÇÃO.");
+                return Titulacao.GRADUACAO;
+        }
+    }
+
 }
