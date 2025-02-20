@@ -106,7 +106,7 @@ public int getEleitoresQueVotaram(){
 }
 
 public int getEleitoresQueNaoVotaram(){
-    return totalEleitores - eleitoresQueVotaram.size();
+    return  eleitoresVotantes.size() - eleitoresQueVotaram.size().;
 }
 
 public List<Candidato> getCandidatos(){

@@ -10,3 +10,15 @@ DOCENTES:
 TÉCNICOS-ADMINISTRATIVOS:
 2001 - Pedro Souza
 2002 - Mariana Costa
+
+DISCENTES:
+2020001 - João Silva
+2020002 - Maria Santos
+
+DOCENTES:
+1001 - Carlos Oliveira
+1002 - Ana Pereira
+
+TÉCNICOS-ADMINISTRATIVOS:
+2001 - Pedro Souza
+2002 - Mariana Costa

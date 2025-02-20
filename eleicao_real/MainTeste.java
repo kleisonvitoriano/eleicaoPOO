@@ -3,7 +3,7 @@ package eleicao_real;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
+
 
 public class MainTeste {
    
@@ -12,65 +12,10 @@ public class MainTeste {
     private static List<TecnicoADM> tecnicosAdm = new ArrayList<>();
 
     public static void main(String[] args) {
-       
         
-        Scanner scanner = new Scanner(System.in);
+        CadastroEleitores cadastro = new CadastroEleitores();
+        cadastro.cadastrarEleitores(alunos, docentes, tecnicosAdm);
 
-        // Coletando dados do Servidor
-        System.out.println("=== Cadastro de Pré-Candidato ===");
-        System.out.print("Nome: ");
-        String nome = scanner.nextLine();
-
-        System.out.print("CPF: ");
-        String cpf = scanner.nextLine();
-
-        System.out.print("Matrícula: ");
-        int matricula = scanner.nextInt();
-        scanner.nextLine(); // Consumir quebra de linha
-
-        System.out.print("Data de Nascimento (YYYY-MM-DD): ");
-        LocalDate dataNascimento = LocalDate.parse(scanner.nextLine());
-
-        System.out.print("Campus: ");
-        String campus = scanner.nextLine();
-
-        System.out.print("Titulação (GRADUACAO, ESPECIALIZACAO, MESTRADO, DOUTORADO): ");
-        Titulacao titulacao = Titulacao.valueOf(scanner.nextLine().toUpperCase());
-
-        System.out.print("Início da Carreira (YYYY-MM-DD): ");
-        LocalDate inicioCarreira = LocalDate.parse(scanner.nextLine());
-
-        System.out.print("Efetivo (true/false): ");
-        boolean efetivo = scanner.nextBoolean();
-        scanner.nextLine();
-
-        System.out.print("Regime de Trabalho (PRESENCIAL ou TELETRABALHO): ");
-        String regime = scanner.nextLine().toUpperCase();
-        
-
-        
-
-        Pre_Candidato preCandidato = new Pre_Candidato(servidor[0]);
-        
-        if (preCandidato.validarInscricao()) {
-            System.out.println("\nInscrição válida! Oficializando candidatura...");
-            Candidato candidato = preCandidato.oficializarCandidatura();
-            System.out.println("Candidato Oficializado!");
-            System.out.println("Número: " + candidato.getNumero());
-            System.out.println("Cor da Campanha: " + candidato.getCor());
-        } else {
-            System.out.println("\nInscrição inválida! Não atende aos critérios.");
-        }
-        scanner.close();
-        
-        
-        
-        
-        
-        
-        
-        
-        
         adicionarEleitores();
 
         /* Gerador de arquivo txt */
@@ -118,5 +63,15 @@ public class MainTeste {
         } catch (Exception e) {
             System.out.println("Erro ao gerar o arquivo de eleitores: " + e.getMessage());
         }
+
+        
+        
+        
+        
+        
+        
+
+        
+     
     }
 }

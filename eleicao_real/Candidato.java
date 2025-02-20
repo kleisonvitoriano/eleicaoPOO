@@ -15,9 +15,9 @@ public class Candidato {
     
     
     public Candidato(Servidor servidor, int numero, String cor) {
-        this.servidor = servidor;
-        this.numero = numero;
-        this.cor = cor;
+        this.setNumero(numero);
+        this.setNumero(numero);
+        this.setCor(cor);
         this.votosDocentes = 0;
         this.votosDiscentes = 0;
         this.votosTecnicos = 0;

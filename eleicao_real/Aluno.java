@@ -8,7 +8,7 @@ public class Aluno extends Pessoa {
     
    public Aluno(String nome, String cpf, int matricula, LocalDate dataNascimento, String curso) {
         super(nome, cpf, matricula, dataNascimento);
-        this.curso = curso;
+        this.setCurso(curso);;
     }
 
     public String getCurso() {
