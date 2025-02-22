@@ -1,7 +1,7 @@
 
 import java.time.LocalDate;
 
-public class Main {
+public class MainTeste {
     public static void main(String[] args) {
         try {
        
