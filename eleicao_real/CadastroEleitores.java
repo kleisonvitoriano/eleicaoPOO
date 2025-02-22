@@ -67,6 +67,8 @@ public class CadastroEleitores {
                     
                     int tempoCarreira = LocalDate.now().getYear() - inicioCarreira.getYear();
 
+                    
+
                     docentes.add(new Docente(nome, cpf, matricula, dataNascimento, campus, titulacao, efetivo, tempoCarreira, inicioCarreira));
                     break;
                 

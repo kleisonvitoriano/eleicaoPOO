@@ -2,7 +2,7 @@ package eleicao_real;
 
 
 import java.util.Random;
-
+// classe nao sera usada, vou juntar com o candidato 
 public class Pre_Candidato {
     private Servidor servidor;
     private boolean inscricaoValida;

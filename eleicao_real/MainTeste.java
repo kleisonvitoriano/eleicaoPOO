@@ -13,8 +13,8 @@ public class MainTeste {
 
     public static void main(String[] args) {
         
-        CadastroEleitores cadastro = new CadastroEleitores();
-        cadastro.cadastrarEleitores(alunos, docentes, tecnicosAdm);
+        // CadastroEleitores cadastro = new CadastroEleitores();
+        // cadastro.cadastrarEleitores(alunos, docentes, tecnicosAdm);
 
 
 
@@ -28,16 +28,16 @@ public class MainTeste {
 
     // Move method outside of main
     private static void adicionarEleitores() {
-        // alunos.add(new Aluno("João Silva", "12345678987", 2020001, LocalDate.of(2000, 5, 15), "Computação"));
-        // alunos.add(new Aluno("Maria Santos", "87654321987", 2020002, LocalDate.of(2001, 8, 22), "Engenharia"));
+        alunos.add(new Aluno("João Silva", "12345678987", 2020001, LocalDate.of(2000, 5, 15), "Computação"));
+        alunos.add(new Aluno("Maria Santos", "87654321987", 2020002, LocalDate.of(2001, 8, 22), "Engenharia"));
         
-        // docentes.add(new Docente("Carlos Oliveira", "11223344987", 1001, LocalDate.of(1975, 3, 10),"Campus Principal", Titulacao.DOUTORADO, true, 10, LocalDate.now()));
+        docentes.add(new Docente("Carlos Oliveira", "11223344987", 1001, LocalDate.of(1975, 3, 10),"Campus Principal", Titulacao.DOUTORADO, true, 10, LocalDate.now()));
 
-        // docentes.add(new Docente("Ana Pereira", "44332211984", 1002, LocalDate.of(1980, 7, 20),"Campus Principal", Titulacao.MESTRADO, true, 8, LocalDate.now()));
+        docentes.add(new Docente("Ana Pereira", "44332211984", 1002, LocalDate.of(1980, 7, 20),"Campus Principal", Titulacao.MESTRADO, true, 8, LocalDate.now()));
 
-        // tecnicosAdm.add(new TecnicoADM("Pedro Souza", "55667788987", 2001, LocalDate.of(1985, 11, 5),"Campus Principal", Titulacao.GRADUACAO, LocalDate.of(2006, 2,12) ,true, 7, LocalDate.now(), RegimeTrabalho.PRESENCIAL));
+        tecnicosAdm.add(new TecnicoADM("Pedro Souza", "55667788987", 2001, LocalDate.of(1985, 11, 5),"Campus Principal", Titulacao.GRADUACAO, LocalDate.of(2006, 2,12) ,true, 7, LocalDate.now(), RegimeTrabalho.PRESENCIAL));
 
-        // tecnicosAdm.add(new TecnicoADM("Mariana Costa"," 99887766987", 2002, LocalDate.of(1990, 4, 12),"Campus Principal", Titulacao.ESPECIALIZACAO,LocalDate.of(2007, 6, 2) ,true, 6, LocalDate.now(), RegimeTrabalho.TELETRABALHO));
+        tecnicosAdm.add(new TecnicoADM("Mariana Costa"," 99887766987", 2002, LocalDate.of(1990, 4, 12),"Campus Principal", Titulacao.ESPECIALIZACAO,LocalDate.of(2007, 6, 2) ,true, 6, LocalDate.now(), RegimeTrabalho.TELETRABALHO));
 
        
     }

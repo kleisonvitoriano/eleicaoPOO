@@ -13,6 +13,13 @@ public Docente(String nome, String cpf, int matricula, LocalDate dataNascimento,
         this.tempoCargoGestao = tempoCargoGestao;
     } 
 
+    public boolean elegivel() {
+        LocalDate hoje = LocalDate.now();
+        int idade = hoje.getYear() - super.getDataNascimento().getYear();
+        return tempoEfetivoServico >= 5 && idade >= 35;
+    }
+
+
     public int getTempoEfetivoServico() {
         return tempoEfetivoServico;
     }
@@ -20,11 +27,7 @@ public Docente(String nome, String cpf, int matricula, LocalDate dataNascimento,
     public LocalDate getTempoCargoGestao() {
         return tempoCargoGestao;
     }
-    public boolean elegivel() {
-        LocalDate hoje = LocalDate.now();
-        int idade = hoje.getYear() - super.getDataNascimento().getYear();
-        return tempoEfetivoServico >= 5 && idade >= 35;
-    }
+   
 
 
 

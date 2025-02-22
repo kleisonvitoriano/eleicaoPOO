@@ -1,6 +1,6 @@
 package eleicao_real;
 
-
+import java.util.Random;
 
 public class Candidato {
     private Servidor servidor;
@@ -12,18 +12,53 @@ public class Candidato {
     private int votosTecnicos;
 
     
+   
     
-    
-    public Candidato(Servidor servidor, int numero, String cor) {
-        this.setNumero(numero);
-        this.setNumero(numero);
-        this.setCor(cor);
+    // public Candidato(Servidor servidor, int numero, String cor) {
+    //     this.setServidor(servidor);
+    //     this.setNumero(numero);
+    //     this.setCor(cor);
+    //     this.votosDocentes = 0;
+    //     this.votosDiscentes = 0;
+    //     this.votosTecnicos = 0;
+    // }
+
+    public Candidato(Servidor servidor) {
+        if (!validarInscricao(servidor)) {
+            System.out.println("O servidor não atende aos requisitos para ser candidato.");
+        } else {
+            System.out.println("Inscrição aceita!");
+        }
+
+        this.servidor = servidor;
+        this.numero = gerarNumeroCandidato();
+        this.cor = escolherCor();
         this.votosDocentes = 0;
         this.votosDiscentes = 0;
         this.votosTecnicos = 0;
     }
 
+    public boolean validarInscricao(Servidor servidor) {
+        if (servidor.getIdade() < 35 || servidor.getinicio_carreira() < 5) {
+            return false; // Inscrição inválida
+        }
+        if (servidor.getTitulacao() != Titulacao.DOUTORADO && servidor.getTitulacao() != Titulacao.MESTRADO) {
+            return false; // Inscrição inválida
+        }
+        return true; // Inscrição válida
+    }
 
+
+    private int gerarNumeroCandidato() {
+        Random random = new Random();
+        return 1000 + random.nextInt(9000); // Número entre 1000 e 9999
+    }
+
+    private String escolherCor() {
+        String[] cores = {"azul", "amarelo", "vermelho", "verde", "roxo", "rosa", "laranja"};
+        Random random = new Random();
+        return cores[random.nextInt(cores.length)];
+    }
 
 
     public void registrarVoto(String categoria) {
@@ -48,7 +83,7 @@ public class Candidato {
         return (100.0f / 3.0f) * (percentualDocentes + percentualDiscentes + percentualTecnicos);
     }
     
-
+    
 
     public Servidor getServidor() {
         return servidor;
