@@ -1,4 +1,4 @@
-packpage eleição_real;
+package eleicao_real;
 
 public class Candidato {
     private Servidor servidor;
