@@ -1,69 +1,42 @@
 package eleicao_real;
 
 import java.time.LocalDate;
+import java.time.Period;
 
 public abstract class Pessoa {
     protected String nome;
     protected String cpf;
-    protected int matricula;
     protected LocalDate dataNascimento;
+    protected String matricula;
 
-
-    public Pessoa(String nome, String cpf, int matricula, LocalDate dataNascimento) {
-        this.setNome(nome);
-        this.setCpf(cpf);
-        this.setMatricula(matricula);
-        this.setDataNascimento(dataNascimento);
+    public Pessoa(String nome, String cpf, LocalDate dataNascimento, String matricula) {
+        if (!matricula.matches("\\d+")) {
+            throw new IllegalArgumentException("A matrícula deve conter apenas números");
+        }
+        this.nome = nome;
+        this.cpf = cpf;
+        this.dataNascimento = dataNascimento;
+        this.matricula = matricula;
     }
 
-
+    // Getters e setters
     public String getNome() {
         return nome;
     }
-
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
 
     public String getCpf() {
         return cpf;
     }
 
-
-    public void setCpf(String cpf) {
-        this.cpf = cpf;
-    }
-
-
-    public int getMatricula() {
-        return matricula;
-    }
-
-
-    public void setMatricula(int matricula) {
-        this.matricula = matricula;
-    }
-
-
     public LocalDate getDataNascimento() {
         return dataNascimento;
     }
 
-
-    public void setDataNascimento(LocalDate dataNascimento) {
-        this.dataNascimento = dataNascimento;
+    public String getMatricula() {
+        return matricula;
     }
 
     public int getIdade() {
-        return LocalDate.now().getYear() - dataNascimento.getYear();
+        return Period.between(dataNascimento, LocalDate.now()).getYears();
     }
-   
-    
-   
-
-    
-    
-
-}
+} 
