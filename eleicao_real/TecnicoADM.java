@@ -2,61 +2,40 @@ package eleicao_real;
 import java.time.LocalDate;
 public class TecnicoADM extends Servidor {
     private int tempoEfetivoServico;
-    private LocalDate tempoCargoGestao;
-    private RegimeTrabalho regimeTrabalho;
+    private int tempoCargoGestao; 
+    private static List<ServidorTecnico> tecnicos = new ArrayList<>();
 
-
-
-
-
-    public TecnicoADM(String nome, String cpf, int matricula, LocalDate dataNascimento, String campus,
-            eleicao_real.Titulacao titulacao, LocalDate inicio_carreira, boolean efetivo, int tempoEfetivoServico,
-            LocalDate tempoCargoGestao, RegimeTrabalho regimeTrabalho) {
-        super(nome, cpf, matricula, dataNascimento, campus, titulacao, inicio_carreira, efetivo);
+    public ServidorTecnico(String nome, String cpf, LocalDate dataNascimento,
+                          String matricula, String campus, Titulacao titulacao,
+                          boolean efetivo, int tempoEfetivoServico, int tempoCargoGestao) {
+        super(nome, cpf, dataNascimento, matricula, campus, titulacao, efetivo);
         this.tempoEfetivoServico = tempoEfetivoServico;
         this.tempoCargoGestao = tempoCargoGestao;
-        this.regimeTrabalho = regimeTrabalho;
+        tecnicos.add(this);
     }
 
-
-
-   
+    public static int getTotalTecnicosEfetivos() {
+        return (int) tecnicos.stream()
+            .filter(Servidor::isEfetivo)
+            .count();
+    }
+    
+    public static List<ServidorTecnico> getTecnicos() {
+        return new ArrayList<>(tecnicos);
+    }
 
     public int getTempoEfetivoServico() {
         return tempoEfetivoServico;
     }
 
-    public LocalDate getTempoCargoGestao() {
+    public int getTempoCargoGestao() {
         return tempoCargoGestao;
     }
+
     public boolean elegivel() {
-        LocalDate hoje = LocalDate.now();
-        int idade = hoje.getYear() - getDataNascimento().getYear();
-        return tempoEfetivoServico >= 5 && idade >= 35;
+        return efetivo && 
+               tempoEfetivoServico >= 60 && // 5 anos em meses
+               getIdade() >= 35 && 
+               (titulacao == Titulacao.DOUTORADO || tempoCargoGestao >= 24); // 2 anos em meses
     }
-
-    public void setTempoEfetivoServico(int tempoEfetivoServico) {
-        this.tempoEfetivoServico = tempoEfetivoServico;
-    }
-
-    public void setTempoCargoGestao(LocalDate tempoCargoGestao) {
-        this.tempoCargoGestao = tempoCargoGestao;
-    }
-
-
-    public RegimeTrabalho getRegimeTrabalho() {
-        return regimeTrabalho;
-    }
-
-
-
-    public void setRegimeTrabalho(RegimeTrabalho regimeTrabalho) {
-        this.regimeTrabalho = regimeTrabalho;
-    }
-
-   
-    
-
-
-
-}
+} 
