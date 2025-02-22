@@ -1,8 +1,10 @@
-package eleicao_real;
 import java.time.LocalDate;
-public class TecnicoADM extends Servidor {
-    private int tempoEfetivoServico;
-    private int tempoCargoGestao; 
+import java.util.ArrayList;
+import java.util.List;
+
+public class ServidorTecnico extends Servidor {
+    private int tempoEfetivoServico; // em meses
+    private int tempoCargoGestao; // em meses
     private static List<ServidorTecnico> tecnicos = new ArrayList<>();
 
     public ServidorTecnico(String nome, String cpf, LocalDate dataNascimento,
