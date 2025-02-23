@@ -54,7 +54,7 @@ public class CadastroEleitores {
            
             System.out.print("Matrícula: ");
             String matricula = scanner.nextLine();
-            scanner.nextLine(); // Consumir quebra de linha
+           
 
             
 
