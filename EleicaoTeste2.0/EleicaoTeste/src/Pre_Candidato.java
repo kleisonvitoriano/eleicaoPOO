@@ -1,7 +1,13 @@
+import java.util.HashSet;
+import java.util.Random;
+import java.util.Set;
+
 public class Pre_Candidato {
     private Servidor servidor;
     private boolean inscricaoValida;
-    private static int contador = 100;
+    private static Set<Integer> numerosUsados = new HashSet<>();
+    private static final String[] CORES = {"Azul", "Vermelho", "Verde", "Amarelo", "Roxo", "Laranja"};
+    private static final Random random = new Random();
 
     public Pre_Candidato(Servidor servidor) {
         if (servidor == null) {
@@ -33,12 +39,15 @@ public class Pre_Candidato {
     }
 
     private int gerarNumeroCandidato() {
-        return contador++;
+        int numero;
+        do {
+            numero = random.nextInt(100) + 1; // Gera número de 1 a 100
+        } while (numerosUsados.contains(numero));
+        numerosUsados.add(numero);
+        return numero;
     }
 
     private String escolherCor() {
-        String[] cores = {"Azul", "Vermelho", "Verde", "Amarelo", "Roxo", "Laranja"};
-        int index = (int) (Math.random() * cores.length);
-        return cores[index];
+        return CORES[random.nextInt(CORES.length)];
     }
 }

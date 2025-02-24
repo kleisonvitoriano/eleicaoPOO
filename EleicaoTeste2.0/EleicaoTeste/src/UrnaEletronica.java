@@ -189,4 +189,28 @@ public class UrnaEletronica {
             System.out.println("Erro ao gerar lista de ausentes: " + e.getMessage());
         }
     }
+
+    public List<Candidato> getCandidatos() {
+        return Collections.unmodifiableList(candidatos);
+    }
+
+    public int getVotosBrancos() {
+        return votosBrancos;
+    }
+    
+    public int getVotosNulos() {
+        return votosNulos;
+    }
+    
+    public int getTotalDocentes() {
+        return totaisPorCategoria.getOrDefault("DOCENTE", 0);
+    }
+    
+    public int getTotalDiscentes() {
+        return totaisPorCategoria.getOrDefault("DISCENTE", 0);
+    }
+    
+    public int getTotalTecnicos() {
+        return totaisPorCategoria.getOrDefault("TECNICO", 0);
+    }
 }
