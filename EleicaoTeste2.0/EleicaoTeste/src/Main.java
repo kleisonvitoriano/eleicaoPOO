@@ -11,7 +11,7 @@ import java.util.Scanner;
 import java.util.Set;
 
 public class Main {
-    // Método auxiliar para ler uma String não vazia
+   
     private static String lerString(Scanner scanner, String mensagem) {
         String valor;
         do {
@@ -24,7 +24,7 @@ public class Main {
         return valor;
     }
     
-    // Método auxiliar para ler um inteiro com validação
+    
     private static int lerInt(Scanner scanner, String mensagem) {
         int num = 0;
         boolean valido = false;
@@ -40,7 +40,7 @@ public class Main {
         return num;
     }
     
-    // Método auxiliar para ler uma data
+   
     private static LocalDate lerData(Scanner scanner, String mensagem) {
         LocalDate data = null;
         boolean valido = false;
@@ -56,10 +56,10 @@ public class Main {
         return data;
     }
     
-    // Adicionar após os métodos auxiliares e antes do main
+    
     private static void cadastrarCandidatosPredefinidos(List<Pessoa> eleitores, UrnaEletronica urna) {
         Random random = new Random();
-        // Gerar 3 números aleatórios únicos entre 1 e 100
+        
         Set<Integer> numerosUsados = new HashSet<>();
         int num1, num2, num3;
         

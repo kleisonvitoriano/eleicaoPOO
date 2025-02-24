@@ -38,7 +38,7 @@ public class Candidato {
     }
 
     public float calcularPercentual(int totalDocentes, int totalDiscentes, int totalTecnicos) {
-        // Fórmula:  (100 / 3) * ((votosDocentes / totalDocentes) + (votosDiscentes / totalDiscentes) + (votosTecnicos / totalTecnicos))
+       
         float sum = 0f;
         if (totalDocentes > 0) {
             sum += (float)votosDocentes / totalDocentes;
@@ -53,7 +53,7 @@ public class Candidato {
     }
 
     public boolean elegivel_diretorGeral() {
-        // Usa o método elegível do servidor (Docente ou Técnico)
+       
         if (servidor instanceof Docente) {
             return ((Docente) servidor).elegivel();
         } else if (servidor instanceof TecnicoAdministrativo) {
